@@ -16,10 +16,11 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'intro')->textarea() ?>
 
-        <?= $form->field($model, 'imagesFile')->fileInput() ?>
-        <?=\yii\bootstrap\Html::img("/$model->logo",['height'=>100])?>
-    
-        <div class="form-group">
+
+    <?=$form->field($model, 'logo')->widget('manks\FileInput', [
+    ])?>;
+
+    <div class="form-group">
             <?= Html::submitButton('提交', ['class' => 'btn btn-primary']) ?>
         </div>
     <?php ActiveForm::end(); ?>

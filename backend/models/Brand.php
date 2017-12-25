@@ -33,7 +33,7 @@ class Brand extends \yii\db\ActiveRecord
         return [
             [['sort', 'status'], 'integer'],
             [['name', 'intro', 'logo'], 'required'],
-            [['imagesFile'],'file','skipOnEmpty' => false,'extensions' => 'jpg,img,png,gif'],
+           // [['imagesFile'],'file','skipOnEmpty' => false,'extensions' => 'jpg,img,png,gif'],
         ];
     }
 

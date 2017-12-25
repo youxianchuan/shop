@@ -2,13 +2,13 @@
 <a href="add" class="btn btn-info">添加</a>
 <table class="table">
     <tr>
-        <td>ID</td>
-        <td>名称</td>
+        <th>ID</th>
+        <th>名称</th>
 
-        <td>简介</td>
-        <td>状态</td>
-        <td>排序</td>
-        <td>操作</td>
+        <th>简介</th>
+        <th>状态</th>
+        <th>排序</th>
+        <th>操作</th>
     </tr>
     <?php foreach ($models as $model):?>
         <tr>
