@@ -100,11 +100,11 @@ class BrandController extends \yii\web\Controller
 //
 //        }
         $config = [
-            'accessKey' => 'EAd29Qrh05q78_cZhajAWcbB1wYCBLyHLqkanjOG',//AK
-            'secretKey' => '_R5o3ZZpPJvz8bNGBWO9YWSaNbxIhpsedbiUtHjW',//SK
-            'domain' => 'http://p1ht4b07w.bkt.clouddn.com',//临时域名
-            'bucket' => 'php0830',//空间名称
-            'area' => Qiniu::AREA_HUADONG//区域
+            'accessKey' => '1lCVCjQssxVs4osNrHGZy7Cu7RU7t7YXeVWhE4uf',//AK
+            'secretKey' => 'wyp-P0wXyTsJy5GwCOQ0oCYo9uIzMBTxs2o8G1zT',//SK
+            'domain' => 'http://p1jtshf46.bkt.clouddn.com',//临时域名
+            'bucket' => 'yiyishop',//空间名称
+            'area' => Qiniu::AREA_HUANAN//区域
         ];
         //实例化qiniu
         $qiniu=new Qiniu($config);

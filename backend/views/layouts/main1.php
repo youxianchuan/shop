@@ -9,6 +9,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -32,14 +33,48 @@ AppAsset::register($this);
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-inverse navbar-fixed-top ',
         ],
     ]);
     $menuItems = [
-        ['label' => '主页', 'url' => ['/site/index']],
+        ['label' => '主页',
+            'url' => ['/site/index'],
+            'items'=>[
+                [
+                    'label'=>'Home1',
+                    'url'=>'/site/index'
+                ],
+                [
+                    'label'=>'Home2',
+                    'url'=>'/site/index'
+                ]
+            ]
+
+            ],
         ['label' => '品牌管理', 'url' => ['/brand/index']],
-        ['label' => '文章分类管理', 'url' => ['/article-category/index']],
-        ['label' => '文章管理', 'url' => ['/article/index']],
+        ['label' => '文章管理',
+            'url' => ['/article-category/index'],
+             'items'=>[
+                     ['label' => '文章分类管理', 'url' => ['/article-category/index'] ],
+                        ['label' => '文章内容管理', 'url' => ['/article/index']],
+
+            ],
+            ],
+        ['label' => '商品管理',
+            'url' => ['/site/index'],
+            'items'=>[
+                [
+                    'label'=>'商品分类管理',
+                    'url'=>'/goods-category/index'
+                ],
+                [
+                    'label'=>'商品管理',
+                    'url'=>'/site/index'
+                ]
+            ]
+
+        ],
+
     ];
 
     if (Yii::$app->user->isGuest) {
@@ -76,6 +111,9 @@ AppAsset::register($this);
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
+
+
+
 </footer>
 
 <?php $this->endBody() ?>
