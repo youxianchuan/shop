@@ -8,6 +8,7 @@ use yii\helpers\Json;
 use yii\web\Request;
 use yii\web\Controller;
 use yii;
+use yii\db\Exception;
 class GoodsCategoryController extends Controller
 {
     public function actionIndex()
@@ -87,22 +88,32 @@ class GoodsCategoryController extends Controller
 
             //验证
             if ($model->validate()) {
-                if($model->parent_id==0){
-                    //1.如果parent_id=0创建一级分类
-                    $model->makeRoot();
-                    \Yii::$app->session->setFlash("success","添加一级分类".$model->name."成功");
-                }else{
-                    //2.添加到对应的父类
-                    //2.1找到父节点
-                    $cateParent=GoodsCategory::findOne($model->parent_id);
-                    //2.2创建一个新的节点
-                    //2.3把新的节点添加到对应的父节点中
-                    $model->prependTo($cateParent);
+                //捕获异常
+                try{
+                    if($model->parent_id==0){
+                        //1.如果parent_id=0创建一级分类
+                        $model->save();
+                        \Yii::$app->session->setFlash("success","添加一级分类".$model->name."成功");
+                    }else{
+                        //2.添加到对应的父类
+                        //2.1找到父节点
+                        $cateParent=GoodsCategory::findOne($model->parent_id);
+                        //2.2创建一个新的节点
+                        //2.3把新的节点添加到对应的父节点中
+                        $model->prependTo($cateParent);
 
-                    \Yii::$app->session->setFlash("success","编辑成功");
+                        \Yii::$app->session->setFlash("success","编辑成功");
+                    }
+                    //刷新
+                    return $this->redirect(['index']);
+
+                }catch (Exception $exception){
+                        \Yii::$app->session->setFlash("danger",$exception->getMessage());
+                        return $this->refresh();
+
                 }
-                //刷新
-                return $this->redirect(['add']);
+
+
             }
 
         }

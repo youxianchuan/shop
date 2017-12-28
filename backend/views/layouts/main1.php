@@ -69,7 +69,7 @@ AppAsset::register($this);
                 ],
                 [
                     'label'=>'商品管理',
-                    'url'=>'/site/index'
+                    'url'=>'/goods/index'
                 ]
             ]
 

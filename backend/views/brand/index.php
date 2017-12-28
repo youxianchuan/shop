@@ -1,5 +1,6 @@
 <h1 class="">品牌管理</h1>
 <a href="add" class="btn btn-info">添加</a>
+<a href="recycle" class=""><span class="glyphicon glyphicon-trash"></span></a>
 <table class="table">
     <tr>
         <th>品牌名</th>

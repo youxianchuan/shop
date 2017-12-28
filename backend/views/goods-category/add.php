@@ -46,10 +46,13 @@ use yii\widgets\ActiveForm;
 
 </div><!-- goods-category-add -->
 <?php
-$js=<<<qqq
+$js=<<<js
 var treeObj = $.fn.zTree.getZTreeObj("w1");
 treeObj.expandAll(true);
-qqq;
+var node = treeObj.getNodeByParam("id","{$model->parent_id}", null);
+treeObj.selectNode(node);//选择节点
+    console.log(node);
+js;
 
 $this->registerJs($js);
 

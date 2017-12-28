@@ -14,6 +14,12 @@ class BrandController extends \yii\web\Controller
         $models = Brand::find()->all();
         return $this->render('index', compact('models'));
     }
+//回收站
+    public function actionRecycle(){
+
+        $models=Brand::find()->where(['status'=>2])->all();
+        return $this->render('recycle',compact('models'));
+    }
 
     //添加数据
     public function actionAdd()

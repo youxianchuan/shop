@@ -62,6 +62,7 @@ public function actionAdd(){
         $model=Article::findOne($id);
         $request=new Request();
         $detail=ArticleDetail::find()->where(['article_id'=>$id])->one();
+
         //得到所有文章分类
         $category=ArticleCategory::find()->asArray()->all();
         //转换成建对值
