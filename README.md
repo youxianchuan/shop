@@ -124,5 +124,32 @@ UI设计 | 0
 ### 7.3 设计要点及解决方案
 
 1.商品详情 下载yii Ueditor插件
+
+2.商品多图上传   单图和多图分别用调用不同的方法上传
+
+3.回显多图
+        $imagesFile=GoodsGallery::find()->where($goods_id=$id)->asArray()->all();
+        //将处理好的数据赋值给imagesFile
+        $model->imagesFile=array_column($imagesFile,'path');
+        
+4.搜索 使用if语句判断  一定要用andwhere  不能用where 在yii框架内where会覆盖前面的where条件
+
+## 7 登陆模块设计
+
+### 7.1 需求
+- 实现用户登陆
+- 实现自动登陆
+- 密码加密
+
+### 7.2 流程
+1.先创建一个用户用于测试
+
+2.创建登陆界面
+
+3.判断用户密码是否正确
+### 7.3 设计要点及解决方案
+
+
+ 
  
 

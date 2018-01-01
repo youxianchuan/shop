@@ -21,9 +21,23 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'status')->radioList(yii::$app->params["status"]) ?>
         <?= $form->field($model, 'sort') ?>
         <?= $form->field($model, 'inputtime') ?>
-    <?= $form->field($model, 'logo')->widget('manks\FileInput', [
-    ])?>
-    <?= $form->field($intro, 'content')->widget('kucha\ueditor\UEditor',[]) ?>
+    <?= $form->field($model, 'logo')->widget(\manks\FileInput::className(),['clientOptions' => [ 'server' => \yii\helpers\Url::to(['brand/upload'])]])?>
+    <?php
+    // ActiveForm
+    echo $form->field($model, 'imagesFile')->widget('manks\FileInput', [
+        'clientOptions' => [
+            'pick' => [
+                'multiple' => true,
+            ],
+             'server' => \yii\helpers\Url::to(['brand/upload']),
+            // 'accept' => [
+            // 	'extensions' => 'png',
+            // ],
+        ],
+    ]); ?>
+    <?=
+    $form->field($intro, 'content')->widget(kucha\ueditor\UEditor::className(),[]) ?>
+
     
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

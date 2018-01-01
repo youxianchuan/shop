@@ -1,6 +1,32 @@
 <h1 class="">商品管理</h1>
-<a href="add" class="btn btn-info">添加</a>
-<a href="recycle" class=""><span class="glyphicon glyphicon-trash"></span></a>
+
+<div class="row">
+<div class="pull-left">
+    <a href="add" class="btn btn-info">添加</a>
+</div>
+<div class="pull-right">
+    <form class="form-inline">
+        <div>
+            <select name="status" class="form-control">
+                <option value="">请选择状态</option>
+                <option  value ="2">禁用</option>
+                <option  value ="1">启用</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" size="3" class="form-control" name='minPrice' placeholder="最低价" value="<?=Yii::$app->request->get('minPrice')?>">
+        </div>
+        -
+        <div class="form-group">
+            <input type="text" size="3" class="form-control" name="maxPrice" placeholder="最高价" value="<?=Yii::$app->request->get('maxPrice')?>">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="keyword" placeholder="请输入名称或货号" value="<?=Yii::$app->request->get('keyword')?>">
+        </div>
+        <button type="submit" class="btn btn-default">搜索</button>
+    </form>
+</div>
+</div>
 <table class="table">
     <tr>
          <th>ID</th>
@@ -36,3 +62,7 @@
         </tr>
     <?php endforeach;?>
 </table>
+
+<?=\yii\widgets\LinkPager::widget(
+    ['pagination' => $pages]
+)?>

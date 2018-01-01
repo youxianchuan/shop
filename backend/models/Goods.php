@@ -22,6 +22,9 @@ use Yii;
  */
 class Goods extends \yii\db\ActiveRecord
 {
+
+
+    public $imagesFile;
     /**
      * @inheritdoc
      */
@@ -36,10 +39,11 @@ class Goods extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'sn', 'logo', 'goods_category_id', 'brand_id', 'market_price', 'shop_price', 'stock', 'status', 'sort', 'inputtime'], 'required'],
-            [['goods_category_id', 'brand_id', 'stock', 'status', 'sort', 'inputtime'], 'integer'],
+            [['name',  'logo', 'goods_category_id', 'brand_id', 'market_price', 'shop_price', 'stock', 'status', 'sort'], 'required'],
+            [['goods_category_id', 'brand_id', 'stock', 'status', 'sort'], 'integer'],
             [['market_price', 'shop_price'], 'number'],
-            [['name', 'sn', 'logo'], 'required'],
+            [['sn','imagesFile'],'safe']
+
         ];
     }
 

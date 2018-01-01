@@ -1,6 +1,6 @@
 <?php
 return [
-    'layout'=>'main1.php',
+    'layout'=>'main.php',
     'language'=>'zh-CN',
     'timeZone'=>'PRC',
     'aliases' => [

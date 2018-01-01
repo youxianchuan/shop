@@ -5,20 +5,20 @@ namespace backend\models;
 use Yii;
 
 /**
- * This is the model class for table "goods_intro".
+ * This is the model class for table "goods_gallery".
  *
  * @property integer $id
- * @property string $content
  * @property integer $goods_id
+ * @property string $path
  */
-class GoodsIntro extends \yii\db\ActiveRecord
+class GoodsGallery extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'goods_intro';
+        return 'goods_gallery';
     }
 
     /**
@@ -27,9 +27,9 @@ class GoodsIntro extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['content'], 'string'],
-            [['goods_id'], 'required'],
+            [['goods_id', 'path'], 'required'],
             [['goods_id'], 'integer'],
+            [['path'], 'string', 'max' => 255],
         ];
     }
 
@@ -38,11 +38,10 @@ class GoodsIntro extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
-
         return [
             'id' => 'ID',
-            'content' => '商品描述',
             'goods_id' => '商品ID',
+            'path' => '图片地址',
         ];
     }
 }
