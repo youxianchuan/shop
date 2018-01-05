@@ -1,6 +1,7 @@
 <?php
 
 namespace backend\controllers;
+use backend\filters\CheckFilter;
 use flyok666\qiniu\Qiniu;
 use backend\models\Brand;
 use yii\web\Request;
@@ -8,6 +9,17 @@ use yii\web\UploadedFile;
 
 class BrandController extends \yii\web\Controller
 {
+
+    public function behaviors()
+    {
+        return [
+
+            'rbac'=>[
+
+                'class'=>CheckFilter::className(),
+            ]
+        ];
+    }
     //显示所有数据
     public function actionIndex()
     {

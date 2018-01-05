@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use backend\filters\CheckFilter;
 use backend\models\Admin;
 use Yii;
 use yii\web\Controller;
@@ -14,6 +15,9 @@ use yii\web\Request;
  */
 class SiteController extends Controller
 {
+
+
+
     /**
      * @inheritdoc
      */
@@ -40,6 +44,10 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+            'rbac'=>[
+
+                'class'=>CheckFilter::className(),
+            ]
         ];
     }
 

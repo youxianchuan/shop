@@ -21,7 +21,8 @@ public function rules()
 {
     return [
 
-      [['username','password'],'required']
+      [['username','password'],'required'],
+      [['rememberMe'],'safe']
     ];
 }
 public function attributeLabels()

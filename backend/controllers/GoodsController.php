@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\filters\CheckFilter;
 use backend\models\Brand;
 use backend\models\Goods;
 use backend\models\GoodsCategory;
@@ -22,6 +23,18 @@ class GoodsController extends \yii\web\Controller
             ]
         ];
     }
+
+    public function behaviors()
+    {
+        return [
+
+            'rbac'=>[
+
+                'class'=>CheckFilter::className(),
+            ]
+        ];
+    }
+
     public function actionIndex()
     {
         $models=Goods::find();

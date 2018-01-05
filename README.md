@@ -149,7 +149,89 @@ UI设计 | 0
 3.判断用户密码是否正确
 ### 7.3 设计要点及解决方案
 
+1.使用场景 配置
 
- 
- 
+model里面配置
 
+public function scenarios()
+{
+    
+    return [
+        'add' => ['title', 'image', 'content'],
+        'edit' => ['title', 'content'],
+    ];
+}
+
+控制器里面加入
+
+$model->setScenario('add');
+
+判断注销和登陆 在controller加入一个方法
+
+ public function actionLogout(){
+ 
+        if(\Yii::$app->user->logout()){
+            return $this->redirect(['login']);
+        }
+        }
+        
+        
+将IP转为数字
+
+$admin->last_login_ip=ip2long(\Yii::$app->request->userIP)；
+
+## 8 权限RBAC设计
+
+### 7.1 需求
+- 创建角色和权限
+- 给用户分配角色权限
+
+### 7.2 流程
+
+1.更改配置
+
+2.建表
+
+3.建立权限增删改查
+
+4.建立角色增删改查
+
+5.给用户分配权限
+
+6.实现RBAC
+### 7.3 设计要点及解决方案
+1.建立数据表  可以通过   
+    
+    yii migrate --migrationPath=@yii/rbac/migrations
+    
+2.更改配置
+
+在common/config/main.php中添加
+
+    'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+       
+    ],
+    
+3.实现RBAC
+ 
+ 建立一个主键 编写行为 beforeAction
+ 
+ 得到当前路由
+ 
+    \Yii::$app->user->can($action->uniqueId)
+ 
+在controller注入行为
+
+    public function behaviors()
+    {
+        return [
+
+            'rbac'=>[
+
+                'class'=>CheckFilter::className(),
+            ]
+        ];
+    }

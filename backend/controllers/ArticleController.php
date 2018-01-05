@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\filters\CheckFilter;
 use backend\models\Article;
 use backend\models\ArticleCategory;
 use backend\models\ArticleDetail;
@@ -10,6 +11,16 @@ use yii\web\Request;
 
 class ArticleController extends \yii\web\Controller
 {
+    public function behaviors()
+    {
+        return [
+
+            'rbac'=>[
+
+                'class'=>CheckFilter::className(),
+            ]
+        ];
+    }
     public function actions()
     {
         return [

@@ -4,17 +4,16 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Admin */
+/* @var $model backend\models\AuthItem */
 /* @var $form ActiveForm */
 ?>
-<div class="admin-add">
+<div class="Permission-add">
 
     <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'username') ?>
-        <?= $form->field($model, 'password')->passwordInput() ?>
-        <?= $form->field($model, 'email') ?>
-        <?= $form->field($model, 'role')->checkboxList($presArr) ?>
+        <?= $form->field($model, 'name') ?>
+        <?= $form->field($model, 'description') ?>
+        <?= $form->field($model, 'premissions')->checkboxList($presArr)?>
 
     
         <div class="form-group">
@@ -22,4 +21,4 @@ use yii\widgets\ActiveForm;
         </div>
     <?php ActiveForm::end(); ?>
 
-</div><!-- admin-add -->
+</div><!-- Permission-add -->

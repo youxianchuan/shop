@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\filters\CheckFilter;
 use backend\models\GoodsCategory;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Json;
@@ -11,6 +12,18 @@ use yii;
 use yii\db\Exception;
 class GoodsCategoryController extends Controller
 {
+
+
+    public function behaviors()
+    {
+        return [
+
+            'rbac'=>[
+
+                'class'=>CheckFilter::className(),
+            ]
+        ];
+    }
     public function actionIndex()
     {
 //        $models=GoodsCategory::find()->all();

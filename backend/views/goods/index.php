@@ -2,17 +2,17 @@
 
 <div class="row">
 <div class="pull-left">
-    <a href="add" class="btn btn-info">添加</a>
+
 </div>
 <div class="pull-right">
     <form class="form-inline">
-        <div>
+
             <select name="status" class="form-control">
                 <option value="">请选择状态</option>
                 <option  value ="2">禁用</option>
                 <option  value ="1">启用</option>
             </select>
-        </div>
+
         <div class="form-group">
             <input type="text" size="3" class="form-control" name='minPrice' placeholder="最低价" value="<?=Yii::$app->request->get('minPrice')?>">
         </div>

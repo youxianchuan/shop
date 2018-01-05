@@ -2,11 +2,23 @@
 
 namespace backend\controllers;
 
+use backend\filters\CheckFilter;
 use backend\models\ArticleDetail;
 use yii\web\Request;
 
 class ArticleDetailController extends \yii\web\Controller
 {
+
+    public function behaviors()
+    {
+        return [
+
+            'rbac'=>[
+
+                'class'=>CheckFilter::className(),
+            ]
+        ];
+    }
     /**
      * @return string
      */

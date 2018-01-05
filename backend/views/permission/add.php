@@ -4,22 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Admin */
+/* @var $model backend\models\AuthItem */
 /* @var $form ActiveForm */
 ?>
-<div class="admin-add">
+<div class="Permission-add">
 
     <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'username') ?>
-        <?= $form->field($model, 'password')->passwordInput() ?>
-        <?= $form->field($model, 'email') ?>
-        <?= $form->field($model, 'role')->checkboxList($presArr) ?>
-
+        <?= $form->field($model, 'name') ?>
+        <?= $form->field($model, 'description') ?>
     
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
         </div>
     <?php ActiveForm::end(); ?>
 
-</div><!-- admin-add -->
+</div><!-- Permission-add -->
