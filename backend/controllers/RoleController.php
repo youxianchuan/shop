@@ -10,16 +10,16 @@ class RoleController extends \yii\web\Controller
 {
 
 
-    public function behaviors()
-    {
-        return [
-
-            'rbac'=>[
-
-                'class'=>CheckFilter::className(),
-            ]
-        ];
-    }
+//    public function behaviors()
+//    {
+//        return [
+//
+//            'rbac'=>[
+//
+//                'class'=>CheckFilter::className(),
+//            ]
+//        ];
+//    }
     public function actionIndex()
     {
         //实例化authManager组件

@@ -9,16 +9,16 @@ use yii\web\Request;
 class ArticleCategoryController extends \yii\web\Controller
 {
 
-    public function behaviors()
-    {
-        return [
-
-            'rbac'=>[
-
-                'class'=>CheckFilter::className(),
-            ]
-        ];
-    }
+//    public function behaviors()
+//    {
+//        return [
+//
+//            'rbac'=>[
+//
+//                'class'=>CheckFilter::className(),
+//            ]
+//        ];
+//    }
     public function actionIndex()
     {
         $models=ArticleCategory::find()->all();

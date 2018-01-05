@@ -41,7 +41,7 @@
         <?= dmstr\widgets\Menu::widget(
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
-                'items' =>\backend\models\LieBiao::liebiao(),
+                'items' =>mdm\admin\components\MenuHelper::getAssignedMenu(Yii::$app->user->id),
 //                'items' => [
 //                    ['label' => '欢迎来到后台界面', 'options' => ['class' => 'header']],
 //                    [

@@ -14,16 +14,16 @@ class GoodsCategoryController extends Controller
 {
 
 
-    public function behaviors()
-    {
-        return [
-
-            'rbac'=>[
-
-                'class'=>CheckFilter::className(),
-            ]
-        ];
-    }
+//    public function behaviors()
+//    {
+//        return [
+//
+//            'rbac'=>[
+//
+//                'class'=>CheckFilter::className(),
+//            ]
+//        ];
+//    }
     public function actionIndex()
     {
 //        $models=GoodsCategory::find()->all();
@@ -86,7 +86,7 @@ class GoodsCategoryController extends Controller
     }
 
     //添加
-    public function actionEdit($id){
+    public function actionUpdate($id){
         $model=GoodsCategory::findOne($id);
         $request=new Request();
         //找到所有数据并转化成数组
@@ -134,7 +134,7 @@ class GoodsCategoryController extends Controller
     }
 
     //删除
-    public function actionDel($id){
+    public function actionDelete($id){
         if(GoodsCategory::findOne($id)->deleteWithChildren()){
             \yii::$app->session->setFlash("success","删除成功");
             return $this->redirect(['index']);

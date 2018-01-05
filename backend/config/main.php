@@ -7,14 +7,42 @@ $params = array_merge(
 );
 
 return [
+
+
     'id' => 'app-backend',
     //修改默认控制器
     'defaultRoute'=>'admin',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+
+        'rbac' => [
+            'class' => 'mdm\admin\Module',
+            'layout' => 'left-menu',
+    ],
+        ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+           // '*',
+            'admin/login',
+
+        ]
+    ],
     'components' => [
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages', // if advanced application, set @frontend/messages
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+                        //'main' => 'main.php',
+                    ],
+                ],
+            ],
+            ],
 //        'view' => [
 //            'theme' => [
 //                'pathMap' => [
@@ -28,6 +56,7 @@ return [
         'user' => [
             'identityClass' =>\backend\models\Admin::className(),//用哪个模型来实现用户操作
             'enableAutoLogin' => true,
+
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
         'session' => [
@@ -56,4 +85,5 @@ return [
 
     ],
     'params' => $params,
+
 ];

@@ -110,7 +110,7 @@ class AdminController extends \yii\web\Controller
                 //找到角色
                 $role=$auth->getRole($model->role);
 
-                $auth->assign($role,$model->id);
+                $auth->update($model->role,$role);
                 \Yii::$app->session->setFlash("success","修改成功");
                 \Yii::$app->user->login($model,3600*24*7);
                 //跳转到登陆页面

@@ -24,16 +24,16 @@ class GoodsController extends \yii\web\Controller
         ];
     }
 
-    public function behaviors()
-    {
-        return [
-
-            'rbac'=>[
-
-                'class'=>CheckFilter::className(),
-            ]
-        ];
-    }
+//    public function behaviors()
+//    {
+//        return [
+//
+//            'rbac'=>[
+//
+//                'class'=>CheckFilter::className(),
+//            ]
+//        ];
+//    }
 
     public function actionIndex()
     {

@@ -10,16 +10,16 @@ use yii\web\UploadedFile;
 class BrandController extends \yii\web\Controller
 {
 
-    public function behaviors()
-    {
-        return [
-
-            'rbac'=>[
-
-                'class'=>CheckFilter::className(),
-            ]
-        ];
-    }
+//    public function behaviors()
+//    {
+//        return [
+//
+//            'rbac'=>[
+//
+//                'class'=>CheckFilter::className(),
+//            ]
+//        ];
+//    }
     //显示所有数据
     public function actionIndex()
     {

@@ -11,16 +11,16 @@ use yii\web\Request;
 
 class ArticleController extends \yii\web\Controller
 {
-    public function behaviors()
-    {
-        return [
-
-            'rbac'=>[
-
-                'class'=>CheckFilter::className(),
-            ]
-        ];
-    }
+//    public function behaviors()
+//    {
+//        return [
+//
+//            'rbac'=>[
+//
+//                'class'=>CheckFilter::className(),
+//            ]
+//        ];
+//    }
     public function actions()
     {
         return [
