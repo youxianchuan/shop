@@ -19,7 +19,7 @@ return [
 
         'rbac' => [
             'class' => 'mdm\admin\Module',
-            'layout' => 'left-menu',
+            //'layout' => 'left-menu',
     ],
         ],
     'as access' => [
