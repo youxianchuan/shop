@@ -1,4 +1,5 @@
 <a href="add" class="btn btn-primary">添加</a>
+<div class="table-responsive">
 <table class="table">
     <tr>
         <th>ID</th>
@@ -16,3 +17,4 @@
     </tr>
     <?php endforeach;?>
 </table>
+</div>

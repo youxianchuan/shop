@@ -1,6 +1,7 @@
 <h1 class="">品牌管理</h1>
 
 <a href="recycle" class=""><span class="glyphicon glyphicon-trash"></span></a>
+<div class="table-responsive">
 <table class="table">
     <tr>
         <th>品牌名</th>
@@ -24,3 +25,4 @@
     </tr>
     <?php endforeach;?>
 </table>
+</div>

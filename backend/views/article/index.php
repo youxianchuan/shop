@@ -1,5 +1,6 @@
 <h1>文章管理</h1>
 <a href="add" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a>
+<div class="table-responsive">
 <table class="table">
     <tr>
         <th>ID</th>
@@ -26,3 +27,4 @@
     </tr>
     <?php endforeach;?>
 </table>
+</div>

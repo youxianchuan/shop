@@ -2,6 +2,7 @@
 
 <h1 class="">文章分类管理</h1>
 <a href="add" class="btn btn-info">添加</a>
+<div class="table-responsive">
 <table class="table">
     <tr>
         <th>ID</th>
@@ -25,3 +26,4 @@
         </tr>
     <?php endforeach;?>
 </table>
+   </div>
